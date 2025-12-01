@@ -2,9 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Scan') {
             steps {
-                echo 'Webhooook test!'
+                withSonaQube(installationNama: 'sql'} {
+                    sh './nvnw clean org.sonarsource.scanne.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+                }
             }
         }
     }
